@@ -57,16 +57,26 @@
 
         #but {
             background-color: #1A1A1A;
+            transition: background-color 10s ease;
+            
+            transition: color 1s ;
             color: white;
             width: 25%;
             padding-top: 9px;
             padding-bottom: 9px;
             border: none;
-            border-radius: 1px;
+            border-radius: 2px;
             font-weight: bold;
             font-size: .8em;
             letter-spacing: 2px;
+            border:1px solid black;
         }
+        
+         #but:hover {
+            background-color:white;
+            color:black;
+            border:1px solid grey;
+         }
 
         #paypals {
             margin: 0 auto;
@@ -97,6 +107,7 @@
         @media only screen and (max-width: 768px) {
             h2 {
                 margin-top: 2%;
+                width: 25%;
             }
         }
 
