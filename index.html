@@ -127,13 +127,13 @@
             
             if (document.getElementById("domestic").checked){
                 
-                document.getElementById("paypal").placeholder="2.9% + 3c";
-                fees = .029
+                $("#paypal").attr('placeholder', '2.9% + 3c');
+                fees = .029;
             }
             else{
                 console.log("Test")
-                document.getElementById("paypal").placeholder="4.4% + 3c";
-                fees= .044
+                $("#paypal").attr('placeholder', '4.4% + 3c');
+                fees= .044;
             }
         }        
 
