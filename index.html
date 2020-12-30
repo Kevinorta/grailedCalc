@@ -120,10 +120,26 @@
         @media only screen and (max-width: 320px) {}
     </style>
     <script type="text/javascript">
+    
+    var fees = .029;
+
+        function radioChange(){
+            
+            if (document.getElementById("domestic").checked){
+                
+                document.getElementById("paypal").placeholder("2.9% + 3c");
+                fees = .029
+            }
+            else{
+                document.getElementById("paypal").placeholder("4.4% + 3c");
+                fees= .044
+            }
+        }        
+
         function calc() {
             var list = document.getElementById('list').value;
             var com = list * .09;
-            var paypal = (list * .029) + .3
+            var paypal = (list * fees) + .3
             $("#com").val(com);
             $("#paypal").val(paypal);
             des = list - com - paypal;
@@ -138,15 +154,32 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
     <div id="header">
-
         <strong><h2>GRAILED CALCULATOR</h2></strong>
     </div>
+
     <br>
+
     <div id="inputs">
-        <br>List Price: <input class="input" type="number" id="list"><br><br><button onclick="calc();" id="but">Calculate Fees</button><br><br> Grailed Commision: <input type="number" placeholder="9%" id="com" disabled class="input"><br><br> Paypal Fees: <input class="input"
-            type="number" placeholder="2.9% + 30c" id="paypal" disabled><br><br> Amount Paid: <input class="input" type="number" id="des" disabled>
+        <br>List Price: <input class="input" type="number" id="list">
+        <br><br>
+        <form action="" onchange="radioChange()">
+            <input type="radio" name="payFeeVal" id="domestic" checked>Domestic</input>
+            <input type="radio" name="payFeeVal" id="international">International</input>
+        </form>
+        <br><br>
+        <button onclick="calc();" id="but">Calculate Fees</button>
+        <br><br> 
+        Grailed Commision: <input type="number" placeholder="9%" id="com" disabled class="input">
+        <br><br> 
+        Paypal Fees: <input class="input" type="number"  placeholder="2.9 + 3c" id="paypal" value="2.9% + 30c" disabled>
+        <br><br>
+         Amount Paid: <input class="input" type="number" id="des" disabled>
     </div>
+
     <br>
+
+
+
     <div id="paypals">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
